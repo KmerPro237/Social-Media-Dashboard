@@ -5,4 +5,6 @@ Light/Dark Mode toogle
 - Switching betwen light/dark mode
 
 CSS variables (Custom Properties)
+- How to use CSS variables
+- How to use CSS variables in JavaScript
  
