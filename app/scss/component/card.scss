@@ -1,0 +1,5 @@
+@use '../util/' as *; // Import util functions and * is a wildcard
+
+.card {
+    padding: rem(20);
+}
