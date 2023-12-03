@@ -2,10 +2,27 @@
 
 
 .toggle {
+    border: none;
+
+    &__wrapper{
+
+    }
+
+    input [type='radio']{
+
+    }
+
+    &__background {
+
+    }
+
     &_button {
         border-radius: 50%;
         width: rem(16);
         height: rem(16);
         background-color: var(--toggle);
     }
+
+    label{}
+
 }
