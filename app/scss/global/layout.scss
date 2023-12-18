@@ -6,7 +6,6 @@
     margin: 0 auto;
 
     @include breakpoint(large) {
-        max-width: rem(1110);
         padding: 0;
     }
   }
