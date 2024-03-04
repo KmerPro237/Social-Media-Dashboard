@@ -55,4 +55,34 @@ Um den Umgang mit verschiedenen Bildschirmgrößen und Geräten zu steuern, insb
 
 Die oben gezeigte Zeile sagt dem Browser, dass die Breite des Viewports der Breite des Gerätebildschirms entsprechen soll und dass der Initialzoom auf 1.0 (keine Vergrößerung oder Verkleinerung) eingestellt ist. Dies ist besonders wichtig, um sicherzustellen, dass Webseiten auf mobilen Geräten korrekt angezeigt werden.
 
+### CSS strukturelle vs dynamische Pseudoklassen
+
+In CSS gibt es zwei Haupttypen von Pseudoklassen, die für die Selektion von Elementen verwendet werden: strukturelle Pseudoklassen und dynamische Pseudoklassen.
+
+1. **Strukturelle Pseudoklassen:**
+   - Strukturelle Pseudoklassen werden verwendet, um Elemente basierend auf ihrer Position oder Beziehung zu anderen Elementen im DOM zu selektieren.
+   - Ein häufig verwendetes Beispiel ist `:first-child`, das das erste Kind eines Elternelements auswählt.
+   - Andere Beispiele sind `:last-child`, `:nth-child()`, `:nth-of-type()`, `:not()`, etc.
+   - Beispiel: `p:first-child` wählt das erste `<p>`-Element innerhalb seines Elternelements aus.
+
+   ```css
+   p:first-child {
+       color: red;
+   }
+   ```
+
+2. **Dynamische Pseudoklassen:**
+   - Dynamische Pseudoklassen werden basierend auf dem Zustand eines Elements oder auf Benutzerinteraktionen ausgewählt.
+   - Ein bekanntes Beispiel ist `:hover`, das ein Element auswählt, wenn es vom Mauszeiger berührt wird.
+   - Andere Beispiele sind `:focus`, `:active`, `:checked` (für Checkboxen und Radiobuttons), `:disabled`, etc.
+   - Beispiel: `a:hover` ändert den Stil eines Links, wenn er vom Mauszeiger berührt wird.
+
+   ```css
+   a:hover {
+       text-decoration: underline;
+   }
+   ```
+
+Beide Arten von Pseudoklassen sind leistungsstarke Werkzeuge, um selektiv Elemente in Abhängigkeit von ihrer Struktur oder ihrem Zustand zu gestalten. Die strukturellen Pseudoklassen helfen dabei, spezifische Elemente basierend auf ihrer Position im DOM auszuwählen, während die dynamischen Pseudoklassen den Stil basierend auf dem Zustand oder der Benutzerinteraktion ändern.
+
 
