@@ -81,3 +81,31 @@ In diesem Beispiel wird dem `div`-Element mit der ID "myShadowHost" ein Shadow D
 
 Die `mode: 'open'`-Option in der `attachShadow`-Methode gibt an, dass der Shadow DOM von außen zugänglich ist. Dies ermöglicht es, auf den `shadowRoot` des Shadow Hosts zuzugreifen und mit dem Shadow DOM zu interagieren.
 
+### Ein XML-Dokument enthält Informationen zu Seminar-Teilnehmern. Jeder Teilnehmer kann bei der Anmeldung bis zu drei Wunschthemen aus einer Liste auswählen und diesen Wünschen Prioritäten (1, 2 oder 3) zuweisen. Das XML-Element "teilnehmer" kann beliebig viele Kindelemente "stud" haben. Das "stud"-Element hat als Kindelemente "vorname" und "nachname", gefolgt von ein, zwei oder drei "wunsch"-Elementen. Das Attribut "matrikel" von "stud" enthält die Matrikelnummer des Studierenden und besteht aus dem Zeichen "m" gefolgt von 7 Ziffern. Das "wunsch"-Element ist ein leeres Element mit den Attributen "prio" für die Priorität (1, 2 oder 3) und "thema" für das ausgewählte Thema. Es wird darum gebeten, eine (Teil-)DTD für diese XML-Elemente und Attribute zu erstellen.
+
+````xml
+<!DOCTYPE seminar [
+  <!ELEMENT seminar (themen,teilnehmer)>
+  <!ATTLIST seminar name CDATA #REQUIRED>
+  <!ELEMENT themen (thema+)>
+  <!ELEMENT thema (#PCDATA)>
+  <!ATTLIST thema nr ID #REQUIRED>
+  <!-- Beginn der Lösung von Aufgabe 2 -->
+  <!ELEMENT teilnehmer (stud*)>
+  <!ELEMENT stud (vorname, nachname, wunsch, wunsch?, wunsch?)>
+  <!ATTLIST stud matrikel ID #REQUIRED>
+  <!ELEMENT wunsch EMPTY>
+  <!ATTLIST wunsch
+    prio (1|2|3) #REQUIRED
+    thema CDATA #REQUIRED
+  >
+  <!-- Ende der Lösung von Aufgabe 2 -->
+  <!ELEMENT vorname (#PCDATA)>
+  <!ELEMENT nachname (#PCDATA)>
+]>
+````
+
+
+
+
+
