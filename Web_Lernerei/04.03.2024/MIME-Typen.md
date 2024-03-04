@@ -37,5 +37,22 @@ MIME-Typen kommen in einer Vielzahl von Use-Cases zum Einsatz, hauptsächlich im
 
 Insgesamt sind MIME-Typen entscheidend, um eine korrekte und sichere Übertragung von Daten im Internet zu gewährleisten, da sie die Interpretation von Ressourcen durch verschiedene Anwendungen und Systeme erleichtern.
 
+### Was ist ein Viewport in CSS?
+
+In CSS bezieht sich der Begriff "Viewport" auf den sichtbaren Bereich einer Webseite auf dem Bildschirm eines Benutzers. Der Viewport definiert, welche Teile der Webseite sichtbar sind, und beeinflusst, wie die Seite auf verschiedenen Geräten und Bildschirmgrößen gerendert wird.
+
+Es gibt zwei Hauptaspekte des Viewports in CSS:
+
+1. **Layout-Viewport**: Dies ist der sichtbare Bereich der Webseite innerhalb des Browserfensters. Die Größe des Layout-Viewports hängt von der Bildschirmgröße des Geräts ab. CSS-Eigenschaften wie `width` und `height` beeinflussen den Layout-Viewport.
+
+2. **Visual-Viewport**: Dies ist der tatsächliche sichtbare Bereich auf dem Bildschirm, der durch das Zoom-Level beeinflusst wird. Die CSS-Eigenschaften `width` und `height` beziehen sich auf den Layout-Viewport, während `window.innerWidth` und `window.innerHeight` JavaScript-Eigenschaften den Visual-Viewport darstellen.
+
+Um den Umgang mit verschiedenen Bildschirmgrößen und Geräten zu steuern, insbesondere bei responsivem Webdesign, können Entwickler das `<meta>`-Tag mit der Eigenschaft `viewport` in den `<head>`-Bereich ihrer HTML-Seite einfügen. Zum Beispiel:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Die oben gezeigte Zeile sagt dem Browser, dass die Breite des Viewports der Breite des Gerätebildschirms entsprechen soll und dass der Initialzoom auf 1.0 (keine Vergrößerung oder Verkleinerung) eingestellt ist. Dies ist besonders wichtig, um sicherzustellen, dass Webseiten auf mobilen Geräten korrekt angezeigt werden.
 
 
