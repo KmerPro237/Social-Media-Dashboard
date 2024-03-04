@@ -1,4 +1,4 @@
-### Welche möglichen Längen (in Bytes) kann die Codierung eines Zeichens in UTF-8 haben? (Unicode)
+### 1) Welche möglichen Längen (in Bytes) kann die Codierung eines Zeichens in UTF-8 haben? (Unicode)
 
   Die UTF-8-Codierung kann ein einzelnes Zeichen mit unterschiedlichen Byte-Längen darstellen, abhängig von dem zugrunde liegenden Unicode-Zeichen. Hier sind die möglichen Längen in Bytes für die UTF-8-Codierung:
   
@@ -12,7 +12,7 @@
   
   Die UTF-8-Codierung ermöglicht eine effiziente Darstellung von Zeichen aus verschiedenen Bereichen des Unicode-Zeichensatzes und ist daher weit verbreitet in der internationalen Zeichenkodierung.
 
-### Welche zwei Elemente werden bei ungeordneten Listen verwendet?
+### 2) Welche zwei Elemente werden bei ungeordneten Listen verwendet?
 
   Bei ungeordneten Listen in HTML werden in der Regel zwei Hauptelemente verwendet: `<ul>` (Unordered List) und `<li>` (List Item).
   
