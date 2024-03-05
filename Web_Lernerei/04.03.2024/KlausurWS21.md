@@ -276,3 +276,6 @@ Zusammengefasst:
 - `r3 = 23`
 - `r4 = 'H=T=S'`
 
+### Aufgabe6 gelöst SVG Komponente
+![image](https://github.com/KmerPro237/Social-Media-Dashboard/assets/118595893/0cabd36a-3c23-4641-8eb3-9a6e74db7b6d)
+
