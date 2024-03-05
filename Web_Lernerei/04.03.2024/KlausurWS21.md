@@ -81,7 +81,7 @@ In diesem Beispiel wird dem `div`-Element mit der ID "myShadowHost" ein Shadow D
 
 Die `mode: 'open'`-Option in der `attachShadow`-Methode gibt an, dass der Shadow DOM von außen zugänglich ist. Dies ermöglicht es, auf den `shadowRoot` des Shadow Hosts zuzugreifen und mit dem Shadow DOM zu interagieren.
 
-### Ein XML-Dokument enthält Informationen zu Seminar-Teilnehmern. Jeder Teilnehmer kann bei der Anmeldung bis zu drei Wunschthemen aus einer Liste auswählen und diesen Wünschen Prioritäten (1, 2 oder 3) zuweisen. Das XML-Element "teilnehmer" kann beliebig viele Kindelemente "stud" haben. Das "stud"-Element hat als Kindelemente "vorname" und "nachname", gefolgt von ein, zwei oder drei "wunsch"-Elementen. Das Attribut "matrikel" von "stud" enthält die Matrikelnummer des Studierenden und besteht aus dem Zeichen "m" gefolgt von 7 Ziffern. Das "wunsch"-Element ist ein leeres Element mit den Attributen "prio" für die Priorität (1, 2 oder 3) und "thema" für das ausgewählte Thema. Es wird darum gebeten, eine (Teil-)DTD für diese XML-Elemente und Attribute zu erstellen.
+### 3) Ein XML-Dokument enthält Informationen zu Seminar-Teilnehmern. Jeder Teilnehmer kann bei der Anmeldung bis zu drei Wunschthemen aus einer Liste auswählen und diesen Wünschen Prioritäten (1, 2 oder 3) zuweisen. Das XML-Element "teilnehmer" kann beliebig viele Kindelemente "stud" haben. Das "stud"-Element hat als Kindelemente "vorname" und "nachname", gefolgt von ein, zwei oder drei "wunsch"-Elementen. Das Attribut "matrikel" von "stud" enthält die Matrikelnummer des Studierenden und besteht aus dem Zeichen "m" gefolgt von 7 Ziffern. Das "wunsch"-Element ist ein leeres Element mit den Attributen "prio" für die Priorität (1, 2 oder 3) und "thema" für das ausgewählte Thema. Es wird darum gebeten, eine (Teil-)DTD für diese XML-Elemente und Attribute zu erstellen.
 
 ````xml
 <!DOCTYPE seminar [
@@ -105,7 +105,113 @@ Die `mode: 'open'`-Option in der `attachShadow`-Methode gibt an, dass der Shadow
 ]>
 ````
 
+### 4) Gegeben sei das untenstehende body-Element einer HTML-Datei. 
+````html
+<body id="1">
+ <p id="2">Brettspiele</p>
+ <ul id="3">
+ <li id="4">
+ <p id="5">Schach</p>
+ <ul id="6">
+ <li id="7">Schnellschach</li>
+ <li id="8">
+ <p id="9">Blitzschach</p>
+ <ul id="10">
+ <li id="11">3 Minuten</li>
+ <li id="12">5 Minuten</li>
+ </ul>
+ </li>
+ <li id="13">Blindschach</li>
+ </ul>
+ </li>
+ <li id="14">Go</li>
+ <li id="15">Gobang</li>
+ <li id="16">
+ <p id="17">Dame</p>
+ <ol id="18">
+ <li id="19">normale Dame</li>
+ <li id="20">Laskerdame</li>
+ </ol>
+ </li>
+ </ul>
+</body>
+````
 
+### a) Geben Sie unter den zwei Selektoren auf der rechten Seite die id’s der durch die Selektoren selektierten Elemente an.
+- body>*>li>p: Id = 5, 17
+- ul>li:nth-child(4n-1) Id = 13, 15
 
+### b) Geben Sie je einen Selektor an, der nur das Element mit der id 7 bzw. 20 selektiert und nichts anderes. Dabei dürfen Sie nicht auf das Attribut id zugreifen.
+- Selektor für 7:  body>ul>li>ul>li:first-child
+- Selektor für 20: body>ul>li>ol>li:last-child
+
+#### Beispiel Impl
+````html
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Selektoren</title>
+  <style>
+    * {
+      color: initial;
+      font-size: initial;
+    }
+
+    body>*>li>p {
+      color: red;
+      font-size: larger;
+    }
+
+    ul>li:nth-child(4n-1) {
+      color: blue;
+      font-size: larger;
+    }
+
+    body>ul>li>ul>li {
+      color: green;
+      font-size: larger;
+    }
+
+    body>ul>li>ol>li:last-child {
+      color: orange;
+      font-size: larger;
+    }
+
+  </style>
+</head>
+
+<body id="1">
+  <p id="2">Brettspiele</p>
+  <ul id="3">
+    <li id="4">
+      <p id="5">Schach</p>
+      <ul id="6">
+        <li id="7">Schnellschach</li>
+        <li id="8">
+          <p id="9">Blitzschach</p>
+          <ul id="10">
+            <li id="11">3 Minuten</li>
+            <li id="12">5 Minuten</li>
+          </ul>
+        </li>
+        <li id="13">Blindschach</li>
+      </ul>
+    </li>
+    <li id="14">Go</li>
+    <li id="15">Gobang</li>
+    <li id="16">
+      <p id="17">Dame</p>
+      <ol id="18">
+        <li id="19">normale Dame</li>
+        <li id="20">Laskerdame</li>
+      </ol>
+    </li>
+  </ul>
+</body>
+
+</html>
+````
 
 
