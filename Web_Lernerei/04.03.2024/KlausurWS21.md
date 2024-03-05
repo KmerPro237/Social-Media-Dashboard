@@ -214,4 +214,65 @@ Die `mode: 'open'`-Option in der `attachShadow`-Methode gibt an, dass der Shadow
 </html>
 ````
 
+### 5) Geben Sie den Wert der vier Konstanten r1,r2,r3,r4 an.
+````javascript
+  const f = (g, x) => g(g(g(x)))
+  const h = x => x + 5
+  const r1 = f(h, 1)
+  const cities = ['Berlin', 'Hamburg', 'Trier', 'Saarlouis', 'Bamberg']
+  const r2 = cities.slice(1, 3).map(v => v.length)
+  const r3 = cities.filter(v => /a[b-n]/.test(v)).reduce((r, v) => r + v.length, 0)
+  cities.pop()
+  cities.shift()
+  const r4 = cities.map(v => v[0]).join('=')
+````
+
+Lassen Sie uns den Code schrittweise durchgehen und die Werte der Konstanten r1, r2, r3 und r4 bestimmen:
+
+### Code:
+
+```javascript
+const f = (g, x) => g(g(g(x)));
+const h = x => x + 5;
+const r1 = f(h, 1);
+
+const cities = ['Berlin', 'Hamburg', 'Trier', 'Saarlouis', 'Bamberg'];
+const r2 = cities.slice(1, 3).map(v => v.length);
+const r3 = cities.filter(v => /a[b-n]/.test(v)).reduce((r, v) => r + v.length, 0);
+
+cities.pop();
+cities.shift();
+const r4 = cities.map(v => v[0]).join('=');
+```
+
+### Schritt-für-Schritt-Erklärung:
+
+1. **r1:**
+   - Die Funktion `f` wird mit den Argumenten `h` und `1` aufgerufen. Die Funktion `f` wendet die Funktion `h` dreimal auf `1` an.
+   - `h(x)` addiert 5 zu `x`. Also ist `h(1) = 1 + 5 = 6`.
+   - Daher ist `f(h, 1) = h(h(h(1))) = h(h(6)) = h(11) = 11 + 5 = 16`.
+   - Der Wert von `r1` ist also `16`.
+
+2. **r2:**
+   - `cities.slice(1, 3)` wählt die Elemente mit den Indizes 1 und 2 aus (`['Hamburg', 'Trier']`).
+   - `map(v => v.length)` wendet die Funktion `length` auf jedes Element an.
+   - Also ist `r2 = [7, 5]`.
+
+3. **r3:**
+   - `cities.filter(v => /a[b-n]/.test(v))` filtert die Städte, die den regulären Ausdruck `/a[b-n]/` erfüllen (enthält 'a' gefolgt von einem Buchstaben zwischen 'b' und 'n').
+   - Das ergibt `['Hamburg', 'Bamberg']`.
+   - `reduce((r, v) => r + v.length, 0)` summiert die Längen dieser Städte. Also ist `r3 = 7 + 7 = 14`.
+
+4. **r4:**
+   - `cities.pop()` entfernt das letzte Element aus dem Array ('Bamberg').
+   - `cities.shift()` entfernt das erste Element aus dem Array ('Berlin').
+   - Das Array ist jetzt `['Hamburg', 'Trier', 'Saarlouis']`.
+   - `map(v => v[0])` wählt den ersten Buchstaben jeder Stadt aus, was `['H', 'T', 'S']` ergibt.
+   - `join('=')` verbindet die Buchstaben mit '='. Daher ist `r4 = 'H=T=S'`.
+
+Zusammengefasst:
+- `r1 = 16`
+- `r2 = [7, 5]`
+- `r3 = 23`
+- `r4 = 'H=T=S'`
 
