@@ -82,4 +82,37 @@ Best Practices für die Gestaltung von Ressourcennamen in einer RESTful API:
 
 Indem diese Best Practices befolgt werden, wird die Gestaltung von Ressourcennamen in einer RESTful API verbessert und trägt zu einer besseren Usability und Verständlichkeit der API bei.
 
+### Erklären Sie den Zweck von Statuscodes in HTTP-Responses einer REST API. Welche Semantik haben Statuscodes jeweils, die mit 2, 3, 4 und 5 beginnen?
+
+Statuscodes in HTTP-Responses spielen eine wichtige Rolle in RESTful APIs, da sie dem Client Informationen über den Status der Anfrage und der Ressource liefern. Jeder HTTP-Statuscode besteht aus drei Ziffern, wobei die erste Ziffer eine numerische Kategorie repräsentiert. Die Kategorien haben unterschiedliche Semantiken:
+
+1. **2xx - Erfolgreiche Anfrage:**
+   - **Semantik:** Der Server hat die Anfrage erfolgreich verstanden, akzeptiert und bearbeitet.
+   - **Beispiel:**
+     - `200 OK`: Standardantwort für erfolgreiche HTTP-Anfragen.
+     - `201 Created`: Die Anfrage wurde erfolgreich erstellt (z. B. bei POST- oder PUT-Anfragen, die eine Ressource erstellen).
+
+2. **3xx - Umleitung:**
+   - **Semantik:** Der Client muss weitere Maßnahmen ergreifen, um die Anfrage abzuschließen.
+   - **Beispiel:**
+     - `301 Moved Permanently`: Die Ressource wurde dauerhaft an eine andere URI verschoben.
+     - `302 Found`: Die Ressource wurde vorübergehend an eine andere URI verschoben.
+
+3. **4xx - Clientfehler:**
+   - **Semantik:** Die Anfrage des Clients war fehlerhaft oder konnte nicht verarbeitet werden.
+   - **Beispiel:**
+     - `400 Bad Request`: Die Anfrage des Clients ist ungültig oder fehlerhaft.
+     - `401 Unauthorized`: Der Client ist nicht autorisiert, die angeforderte Ressource zu erhalten.
+     - `403 Forbidden`: Der Server hat die Anfrage verstanden, verweigert jedoch die Autorisierung.
+
+4. **5xx - Serverfehler:**
+   - **Semantik:** Der Server konnte die Anfrage nicht korrekt verarbeiten.
+   - **Beispiel:**
+     - `500 Internal Server Error`: Ein allgemeiner Serverfehler ist aufgetreten.
+     - `502 Bad Gateway`: Der Server hat als Gateway oder Proxy einen ungültigen Antwort vom Upstream-Server erhalten.
+
+Diese Statuscodes bieten dem Client kontextbezogene Informationen über den Erfolg oder das Scheitern der Anfrage. Der Client kann basierend auf dem Statuscode entsprechende Aktionen durchführen, wie z.B. das erneute Senden der Anfrage, das Umleiten auf eine andere URI oder das Anzeigen von Fehlermeldungen für den Endbenutzer.
+
+In einer RESTful API ist es wichtig, angemessene Statuscodes zu verwenden, um die Interoperabilität und das korrekte Verhalten zwischen Client und Server sicherzustellen.
+
 
