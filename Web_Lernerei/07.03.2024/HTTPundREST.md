@@ -115,4 +115,31 @@ Diese Statuscodes bieten dem Client kontextbezogene Informationen über den Erfo
 
 In einer RESTful API ist es wichtig, angemessene Statuscodes zu verwenden, um die Interoperabilität und das korrekte Verhalten zwischen Client und Server sicherzustellen.
 
+### Was ist überhaupt einen URI. Was unterscheidet es von einem URL?
+
+URI (Uniform Resource Identifier) und URL (Uniform Resource Locator) sind Begriffe, die oft miteinander verwechselt werden, aber spezifische Bedeutungen haben.
+
+1. **URI (Uniform Resource Identifier):**
+   - Eine URI ist eine Zeichenkette, die eine eindeutige Identifikation oder Adresse für eine Ressource im Internet darstellt. Eine URI kann sowohl URLs als auch URNs (Uniform Resource Names) umfassen.
+   - Beispiel für eine URI: `https://www.example.com/resource`
+
+2. **URL (Uniform Resource Locator):**
+   - Eine URL ist eine spezielle Form der URI, die die genaue Netzwerkadresse einer Ressource angibt und häufig zum Auffinden und Abrufen von Ressourcen verwendet wird. URLs identifizieren nicht nur die Ressource, sondern geben auch den Mechanismus an, wie die Ressource abgerufen werden kann.
+   - Beispiel für eine URL: `https://www.example.com/page`
+
+Die Unterschiede können wie folgt zusammengefasst werden:
+
+- **URI:**
+  - Allgemeine Bezeichnung für eine Identifikation oder Adresse einer Ressource.
+  - Kann sowohl URLs als auch URNs umfassen.
+  - Beispiel: `mailto:john@example.com` ist eine URI, aber keine URL.
+
+- **URL:**
+  - Spezifische Form der URI, die die genaue Netzwerkadresse einer Ressource angibt.
+  - Enthält normalerweise Informationen darüber, wie die Ressource abgerufen werden kann (z. B. durch das Verwenden von HTTP oder FTP).
+  - Beispiel: `https://www.example.com/resource` ist eine URL.
+
+In der Praxis wird der Begriff "URL" oft allgemein verwendet, auch wenn eigentlich eine allgemeine URI gemeint ist. Die Verwirrung zwischen den beiden Begriffen ist weit verbreitet, und viele Menschen verwenden "URL" als Synonym für "URI". Beachte jedoch, dass der formale Unterschied zwischen den beiden Begriffen besteht.
+
+
 
