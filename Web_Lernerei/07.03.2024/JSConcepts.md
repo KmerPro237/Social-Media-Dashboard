@@ -114,3 +114,81 @@ printPerson(person);
 
 Die Destrukturierung ist eine leistungsstarke Funktion in JavaScript, die den Code kürzer, lesbarer und flexibler machen kann.
 
+### JS Inversion of Control
+
+Inversion of Control (IoC) in the context of JavaScript typically refers to a design principle where the flow of control is inverted compared to traditional procedural programming. Instead of the main program controlling the flow and calling specific functions, control is delegated to an external framework or container.
+
+JavaScript, being a flexible and dynamic language, allows for various patterns and implementations of IoC. One common scenario is the use of dependency injection (DI), a specific form of IoC. Here's a brief explanation of these concepts:
+
+1. **Dependency Injection (DI):**
+   - Dependency Injection is a design pattern where the dependencies of a component (functions, objects, or services) are injected from the outside rather than being created or managed internally.
+   - This can lead to more modular and testable code as dependencies can be easily substituted or mocked during testing.
+   - Here's a simple example using JavaScript:
+
+     ```javascript
+     // Without DI
+     function fetchData() {
+       const httpClient = new HttpClient();
+       const data = httpClient.get('https://example.com/api/data');
+       // Process data...
+     }
+
+     // With DI
+     function fetchData(httpClient) {
+       const data = httpClient.get('https://example.com/api/data');
+       // Process data...
+     }
+     ```
+
+2. **JavaScript Frameworks with IoC:**
+   - Some JavaScript frameworks, like Angular and NestJS, incorporate IoC principles in their architecture.
+   - In these frameworks, the control flow is managed by the framework itself. Components, services, or modules are registered with the framework, and the framework takes care of instantiating and injecting dependencies when needed.
+
+   ```javascript
+   // Example using Angular (TypeScript)
+   @Injectable()
+   class DataService {
+     getData() {
+       // Implementation...
+     }
+   }
+
+   @Component({
+     selector: 'app-root',
+     template: '<div>{{ data }}</div>'
+   })
+   class AppComponent {
+     constructor(private dataService: DataService) {
+       this.data = dataService.getData();
+     }
+   }
+   ```
+
+3. **Promises and Callbacks:**
+   - Asynchronous programming in JavaScript often involves callbacks or Promises, which can be considered a form of IoC.
+   - Instead of the main program controlling the flow of execution, functions provided as callbacks or chained promises dictate when and how certain operations are performed.
+
+   ```javascript
+   // Example using Promises
+   function fetchData() {
+     return new Promise((resolve, reject) => {
+       // Asynchronous operation...
+       if (success) {
+         resolve(data);
+       } else {
+         reject(error);
+       }
+     });
+   }
+
+   fetchData()
+     .then((data) => {
+       // Process data...
+     })
+     .catch((error) => {
+       // Handle error...
+     });
+   ```
+
+In summary, Inversion of Control in JavaScript often involves practices like Dependency Injection, where dependencies are injected from external sources, and the control flow is managed by external frameworks or patterns. This can lead to more modular, testable, and maintainable code.
+
