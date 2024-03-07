@@ -141,5 +141,35 @@ Die Unterschiede können wie folgt zusammengefasst werden:
 
 In der Praxis wird der Begriff "URL" oft allgemein verwendet, auch wenn eigentlich eine allgemeine URI gemeint ist. Die Verwirrung zwischen den beiden Begriffen ist weit verbreitet, und viele Menschen verwenden "URL" als Synonym für "URI". Beachte jedoch, dass der formale Unterschied zwischen den beiden Begriffen besteht.
 
+### Erkl¨aren Sie kurz in eigenen Worten, was Cross-Site Scripting (XSS) ist und warum es eine potenzielle Sicherheitsbedrohung fur Webanwendungen darstellt.
+
+Cross-Site Scripting (XSS) ist eine Sicherheitslücke, bei der schädlicher Code (meistens JavaScript) in Webseiten eingefügt wird und dann von anderen Benutzern der Website, insbesondere Opfern, ausgeführt wird. Diese Art von Angriff tritt auf, wenn ein Angreifer bösartigen Code in Benutzereingaben einschleust, der dann von anderen Benutzern oder dem System selbst ausgeführt wird.
+
+Es gibt verschiedene Arten von XSS-Angriffen:
+
+1. **Gespeichertes XSS (Stored XSS):**
+   - Der schädliche Code wird auf dem Server gespeichert und später an alle Benutzer ausgeliefert, die die betroffene Seite abrufen.
+
+2. **Reflektiertes XSS (Reflected XSS):**
+   - Der schädliche Code wird in einer URL oder einem Formular eingefügt und dann an den Server gesendet. Der Server gibt den eingeschleusten Code in der Antwort zurück, der dann vom Opferbrowser ausgeführt wird.
+
+3. **DOM-basiertes XSS:**
+   - Der schädliche Code beeinflusst das DOM (Document Object Model) einer Webseite direkt, indem er die Struktur der Seite manipuliert.
+
+Warum ist XSS eine potenzielle Sicherheitsbedrohung?
+
+- **Ausführung von Schadcode:**
+  - XSS ermöglicht es Angreifern, schädlichen Code im Kontext der betroffenen Website auszuführen. Dies könnte dazu führen, dass vertrauliche Informationen gestohlen oder Aktionen im Namen des Benutzers ausgeführt werden.
+
+- **Datendiebstahl:**
+  - Durch XSS kann ein Angreifer Benutzerdaten wie Cookies, Sitzungstoken oder andere sensible Informationen abgreifen, um unbefugten Zugriff zu erlangen.
+
+- **Session-Hijacking:**
+  - Angreifer könnten durch XSS-Skripte Sitzungsinformationen abrufen und damit Benutzersitzungen kapern, was zu nicht autorisiertem Zugriff auf Benutzerkonten führt.
+
+- **Phishing-Angriffe:**
+  - XSS kann verwendet werden, um gefälschte Benutzeroberflächen oder Pop-ups anzuzeigen, die dazu dienen, Benutzer dazu zu verleiten, ihre Anmeldedaten oder andere vertrauliche Informationen preiszugeben.
+
+Um sich vor XSS-Angriffen zu schützen, sollten Entwickler bewusst sicherheitsbewussten Code schreiben, Eingaben ordnungsgemäß validieren und sämtliche Ausgaben entsprechend codieren. Content Security Policy (CSP) kann ebenfalls implementiert werden, um bestimmte Arten von Ressourcen einzuschränken und XSS-Angriffe zu erschweren.
 
 
