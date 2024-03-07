@@ -284,5 +284,82 @@ Remember that `await` can only be used inside async functions, and async functio
 
 #### Explanations
 
+Let's break down how each of the functions in the provided examples is executed:
+
+### 1. Callbacks:
+
+#### Function `fetchData(callback)`
+
+1. `fetchData` is called with `processData` as a callback.
+2. Inside `fetchData`, a simulated asynchronous operation (a `setTimeout`) is performed.
+3. After one second, the callback function (`processData`) is invoked with the fetched data.
+
+#### Function `processData(data)`
+
+1. `processData` is called with the fetched data.
+2. It logs the processed data to the console.
+
+#### Execution Flow:
+
+```plaintext
+1. fetchData(processData) is called.
+2. fetchData sets a timeout for one second.
+3. processData is passed as a callback to fetchData.
+4. fetchData waits for one second.
+5. After one second, the simulated asynchronous operation completes.
+6. fetchData invokes processData with the fetched data.
+7. processData logs the processed data.
+```
+
+### 2. Promises:
+
+#### Function `fetchData`
+
+1. `fetchData` is called.
+2. Inside `fetchData`, a Promise is created that simulates an asynchronous operation using `setTimeout`.
+3. After one second, the Promise is resolved with the fetched data.
+
+#### Usage of Promises:
+
+1. `.then((data) => { console.log('Processed data:', data); })` is a callback attached to the resolved state of the Promise.
+2. `.catch((error) => { console.error('Error:', error); })` is a callback attached to the rejected state of the Promise.
+
+#### Execution Flow:
+
+```plaintext
+1. fetchData() is called.
+2. fetchData returns a Promise.
+3. setTimeout simulates an asynchronous operation.
+4. After one second, the Promise is resolved with the fetched data.
+5. The .then callback logs the processed data.
+```
+
+### 3. Async Functions and `await`:
+
+#### Async Function `fetchData`
+
+1. `fetchData` is an async function called without any argument.
+2. Inside `fetchData`, a Promise is created and resolved with the fetched data after one second.
+
+#### Async Function `processData`
+
+1. `processData` is an async function.
+2. `await fetchData()` pauses the execution of `processData` until the Promise returned by `fetchData` is resolved.
+3. After one second, the resolved data is assigned to the variable `data`.
+4. `console.log('Processed data:', data)` logs the processed data.
+
+#### Execution Flow:
+
+```plaintext
+1. processData is called.
+2. await fetchData() pauses execution until the Promise is resolved.
+3. fetchData is called and returns a Promise.
+4. setTimeout simulates an asynchronous operation.
+5. After one second, the Promise is resolved with the fetched data.
+6. The resolved data is assigned to the variable data.
+7. console.log('Processed data:', data) logs the processed data.
+```
+
+In summary, callbacks, promises, and async functions with `await` allow for handling asynchronous operations in JavaScript in different ways, providing cleaner and more readable code. Each step in the execution flow is closely tied to the asynchronous nature of the operations, allowing non-blocking behavior in the JavaScript runtime.
 
 
