@@ -362,4 +362,70 @@ Let's break down how each of the functions in the provided examples is executed:
 
 In summary, callbacks, promises, and async functions with `await` allow for handling asynchronous operations in JavaScript in different ways, providing cleaner and more readable code. Each step in the execution flow is closely tied to the asynchronous nature of the operations, allowing non-blocking behavior in the JavaScript runtime.
 
+### Promise rejection
+
+A Promise in JavaScript can be in one of three states: pending, fulfilled, or rejected. A promise is considered rejected when an error or an exception occurs during the execution of the asynchronous operation it represents. Several factors can lead to the rejection of a Promise:
+
+1. **Explicit Rejection:**
+   - The most common way to reject a Promise is by explicitly calling the `reject` function provided in the Promise executor function. For example:
+
+     ```javascript
+     const promise = new Promise((resolve, reject) => {
+       // ...
+       reject(new Error('Explicitly rejecting the Promise'));
+     });
+     ```
+
+2. **Thrown Exception:**
+   - If an exception is thrown inside the executor function, it will automatically reject the Promise. The thrown value becomes the rejection reason.
+
+     ```javascript
+     const promise = new Promise((resolve, reject) => {
+       // ...
+       throw new Error('Throwing an exception');
+     });
+     ```
+
+3. **Network Errors:**
+   - Promises that involve network requests, such as fetching data from a server, can be rejected if there are network errors. For example, if the server is unreachable or the request times out.
+
+     ```javascript
+     const promise = fetch('https://example.com/api/data')
+       .then(response => response.json())
+       .catch(error => {
+         console.error('Network error:', error);
+         throw error; // Re-throwing the error to propagate the rejection
+       });
+     ```
+
+4. **Rejected Promises in the Chain:**
+   - If a Promise is part of a promise chain (using `.then` or `.catch`), and it rejects, the subsequent Promises in the chain will also reject.
+
+     ```javascript
+     const promise = fetchData()
+       .then(data => processData(data))
+       .then(result => console.log(result))
+       .catch(error => console.error('Error in the chain:', error));
+     ```
+
+5. **Promise Timeout:**
+   - If a Promise involves a timeout mechanism and the operation takes longer than the specified timeout, the Promise may be explicitly rejected.
+
+     ```javascript
+     const timeoutPromise = new Promise((resolve, reject) => {
+       setTimeout(() => {
+         reject(new Error('Operation timed out'));
+       }, 5000); // 5 seconds timeout
+     });
+
+     const fetchDataPromise = fetchData();
+
+     Promise.race([timeoutPromise, fetchDataPromise])
+       .then(data => console.log('Data received:', data))
+       .catch(error => console.error('Error:', error));
+     ```
+
+These are common scenarios, but the specific reasons for rejection can vary depending on the nature of the asynchronous operation being performed with the Promise. Always handle Promise rejections appropriately using the `.catch` method or by attaching a second argument to the `.then` method to handle errors in promise chains.
+
+
 
