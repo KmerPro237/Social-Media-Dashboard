@@ -52,3 +52,65 @@ console.log(sum(1, 2, 3, 4)); // Output: 10
 In Funktionsparametern kann der Spread-Operator als Rest-Parameter verwendet werden, um eine variable Anzahl von Argumenten in ein Array zu sammeln.
 
 Der Spread-Operator macht den Code lesbarer, reduziert Duplikationen und erleichtert das Arbeiten mit Arrays und Objekten.
+
+### Was ist Destrukturierung in JS?
+
+Die Destrukturierung (Destructuring) in JavaScript ist eine expressive Syntax, die es ermöglicht, Daten aus Arrays oder Objekten zu extrahieren und in eigenen Variablen zu speichern. Sie bietet eine kompakte Möglichkeit, auf bestimmte Teile von Datenstrukturen zuzugreifen und diese zu verwenden. Die Destrukturierung kann sowohl für Arrays als auch für Objekte angewendet werden.
+
+### Destrukturierung von Arrays:
+
+#### Beispiel 1: Einfache Zuweisung
+```javascript
+const numbers = [1, 2, 3];
+const [a, b, c] = numbers;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 2
+console.log(c); // Output: 3
+```
+
+#### Beispiel 2: Überspringen von Werten
+```javascript
+const numbers = [1, 2, 3, 4, 5];
+const [a, , , b] = numbers;
+
+console.log(a); // Output: 1
+console.log(b); // Output: 4
+```
+
+### Destrukturierung von Objekten:
+
+#### Beispiel 1: Einfache Zuweisung
+```javascript
+const person = { name: 'John', age: 30 };
+const { name, age } = person;
+
+console.log(name); // Output: John
+console.log(age);  // Output: 30
+```
+
+#### Beispiel 2: Umbenennung von Variablen
+```javascript
+const person = { name: 'John', age: 30 };
+const { name: personName, age: personAge } = person;
+
+console.log(personName); // Output: John
+console.log(personAge);  // Output: 30
+```
+
+### Verwendung in Funktionen:
+
+Die Destrukturierung kann auch in Funktionen verwendet werden, um Parameter zu extrahieren:
+
+```javascript
+function printPerson({ name, age }) {
+  console.log(`Name: ${name}, Age: ${age}`);
+}
+
+const person = { name: 'Alice', age: 25 };
+printPerson(person);
+// Output: Name: Alice, Age: 25
+```
+
+Die Destrukturierung ist eine leistungsstarke Funktion in JavaScript, die den Code kürzer, lesbarer und flexibler machen kann.
+
