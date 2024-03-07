@@ -192,3 +192,97 @@ JavaScript, being a flexible and dynamic language, allows for various patterns a
 
 In summary, Inversion of Control in JavaScript often involves practices like Dependency Injection, where dependencies are injected from external sources, and the control flow is managed by external frameworks or patterns. This can lead to more modular, testable, and maintainable code.
 
+### Js callbacks, promises, async functions (await) explained
+
+Sure, let's discuss JavaScript callbacks, promises, and async functions with `await`.
+
+### Callbacks:
+
+Callbacks are functions passed as arguments to another function, to be executed later. They are commonly used in asynchronous operations, like handling events or making API requests.
+
+**Example:**
+
+```javascript
+function fetchData(callback) {
+  // Simulating an asynchronous operation
+  setTimeout(() => {
+    const data = 'This is the fetched data';
+    callback(data);
+  }, 1000);
+}
+
+function processData(data) {
+  console.log('Processed data:', data);
+}
+
+fetchData(processData);
+```
+
+### Promises:
+
+Promises were introduced to handle asynchronous operations more cleanly. A promise represents a value that might be available now, or in the future, or never.
+
+**Example:**
+
+```javascript
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+      const success = true;
+      if (success) {
+        const data = 'This is the fetched data';
+        resolve(data);
+      } else {
+        const error = 'Error fetching data';
+        reject(error);
+      }
+    }, 1000);
+  });
+}
+
+fetchData()
+  .then((data) => {
+    console.log('Processed data:', data);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+```
+
+### Async Functions and `await`:
+
+Async functions provide a cleaner syntax for handling promises. The `await` keyword can be used inside an async function to wait for the resolution of a promise. This makes asynchronous code look more like synchronous code.
+
+**Example:**
+
+```javascript
+async function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const data = 'This is the fetched data';
+      resolve(data);
+    }, 1000);
+  });
+}
+
+async function processData() {
+  try {
+    const data = await fetchData();
+    console.log('Processed data:', data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+processData();
+```
+
+In this example, `await fetchData()` suspends the execution of `processData` until the promise returned by `fetchData` is resolved. This leads to cleaner and more readable asynchronous code.
+
+Remember that `await` can only be used inside async functions, and async functions always return promises. This allows for easy chaining of asynchronous operations.
+
+#### Explanations
+
+
+
