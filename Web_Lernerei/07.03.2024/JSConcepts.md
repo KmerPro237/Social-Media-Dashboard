@@ -427,5 +427,51 @@ A Promise in JavaScript can be in one of three states: pending, fulfilled, or re
 
 These are common scenarios, but the specific reasons for rejection can vary depending on the nature of the asynchronous operation being performed with the Promise. Always handle Promise rejections appropriately using the `.catch` method or by attaching a second argument to the `.then` method to handle errors in promise chains.
 
+### What are closures in js?
+
+Closures are a powerful and fundamental concept in JavaScript. A closure is formed when a function is defined within another function, allowing the inner function to access the outer function's variables and parameters even after the outer function has finished executing. In other words, a closure "closes over" the variables from its outer scope.
+
+Here's a basic example to illustrate closures:
+
+```javascript
+function outerFunction(x) {
+  // Inner function defined within the outer function
+  function innerFunction(y) {
+    // Accesses both x from outerFunction and y from innerFunction
+    return x + y;
+  }
+
+  // Returns the inner function, creating a closure
+  return innerFunction;
+}
+
+// Create a closure by calling outerFunction with argument 5
+const closure = outerFunction(5);
+
+// Use the closure to add 3 to the outerFunction's x
+const result = closure(3);
+console.log(result); // Output: 8
+```
+
+In this example:
+
+- `outerFunction` takes a parameter `x` and defines an inner function `innerFunction`.
+- `innerFunction` has access to the `x` parameter of its outer function (`outerFunction`) even after `outerFunction` has finished executing.
+- The call to `outerFunction(5)` returns the `innerFunction`, creating a closure where `x` is bound to `5`.
+- The closure (`innerFunction` with the closed-over `x`) is assigned to the variable `closure`.
+- When `closure` is invoked with `3` as an argument (`closure(3)`), it uses the closed-over `x` (which is `5`) and adds it to the passed argument (`3`), resulting in `8`.
+
+Key characteristics of closures:
+
+1. **Access to Outer Variables:**
+   - Closures have access to variables declared in their outer (enclosing) scope, even after the outer function has completed execution.
+
+2. **Preservation of Scope Chain:**
+   - Closures maintain a reference to the entire scope chain in which they were created. This includes the variables of their own function, the variables of outer functions, and global variables.
+
+3. **Lexical Scoping:**
+   - Closures follow the rules of lexical scoping, meaning they have access to variables defined in their lexical environment (the environment in which they were declared).
+
+Closures are a crucial concept in JavaScript and are commonly used in scenarios like creating private variables, implementing data encapsulation, and managing asynchronous operations.
 
 
