@@ -82,6 +82,59 @@ Best Practices für die Gestaltung von Ressourcennamen in einer RESTful API:
 
 Indem diese Best Practices befolgt werden, wird die Gestaltung von Ressourcennamen in einer RESTful API verbessert und trägt zu einer besseren Usability und Verständlichkeit der API bei.
 
+In RESTful APIs werden die Parameter im Request Body in der Regel bei den folgenden HTTP-Methoden eingegeben:
+
+1. **POST:**
+   - Die `POST`-Methode wird verwendet, um neue Daten zu erstellen. Die Informationen, die zum Erstellen einer neuen Ressource benötigt werden, werden im Request Body übermittelt. Dies gilt beispielsweise für das Hinzufügen eines neuen Produkts zu einem Warenkorb, das Erstellen eines neuen Benutzerkontos oder das Einreichen eines Formulars.
+
+   Beispiel:
+
+   ```plaintext
+   POST /products
+   {
+     "name": "New Product",
+     "price": 29.99,
+     "category": "Electronics"
+   }
+   ```
+
+2. **PUT:**
+   - Die `PUT`-Methode wird verwendet, um eine Ressource zu erstellen oder zu aktualisieren. Ähnlich wie bei `POST` wird der Request Body verwendet, um die vollständigen Daten für die Ressource zu übermitteln. Im Fall von Aktualisierungen wird erwartet, dass der Request Body den gesamten Ressourcenstatus ersetzt.
+
+   Beispiel:
+
+   ```plaintext
+   PUT /products/123
+   {
+     "name": "Updated Product",
+     "price": 39.99,
+     "category": "Electronics"
+   }
+   ```
+
+3. **PATCH:**
+   - Die `PATCH`-Methode wird verwendet, um Teile einer Ressource zu aktualisieren. Im Gegensatz zu `PUT` wird bei `PATCH` erwartet, dass nur die spezifischen Felder oder Teile der Ressource im Request Body übermittelt werden, die aktualisiert werden sollen.
+
+   Beispiel:
+
+   ```plaintext
+   PATCH /products/123
+   {
+     "price": 49.99
+   }
+   ```
+
+4. **DELETE:**
+   - Bei der `DELETE`-Methode wird normalerweise die zu löschende Ressource durch die URI identifiziert. In einigen Fällen kann jedoch auch ein Request Body verwendet werden, um zusätzliche Informationen zu übermitteln, wenn dies erforderlich ist.
+
+   Beispiel:
+
+   ```plaintext
+   DELETE /products/123
+   ```
+
+Es ist wichtig zu beachten, dass die Verwendung von Request Body-Parametern nicht für alle HTTP-Methoden erforderlich ist. Insbesondere `GET`-Anfragen sollten in der Regel keine Parameter im Request Body enthalten, sondern stattdessen über Query-Parameter in der URL erfolgen.
+
 ### Erklären Sie den Zweck von Statuscodes in HTTP-Responses einer REST API. Welche Semantik haben Statuscodes jeweils, die mit 2, 3, 4 und 5 beginnen?
 
 Statuscodes in HTTP-Responses spielen eine wichtige Rolle in RESTful APIs, da sie dem Client Informationen über den Status der Anfrage und der Ressource liefern. Jeder HTTP-Statuscode besteht aus drei Ziffern, wobei die erste Ziffer eine numerische Kategorie repräsentiert. Die Kategorien haben unterschiedliche Semantiken:
