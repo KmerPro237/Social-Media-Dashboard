@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.24.7",
     "autoprefixer": "^10.4.16",
     "browser-sync": "^3.0.2",
-    "cssnano": "^7.0.3",
+    "cssnano": "^7.0.4",
     "dart-sass": "^1.25.0",
     "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
