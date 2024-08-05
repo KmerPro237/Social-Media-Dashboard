@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.0",
-    "autoprefixer": "^10.4.20",
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.25.3",
+    "autoprefixer": "^10.4.16",
     "browser-sync": "^3.0.2",
     "cssnano": "^7.0.4",
     "dart-sass": "^1.25.0",
