@@ -13,7 +13,7 @@
     "@babel/core": "^7.24.9",
     "@babel/preset-env": "^7.25.4",
     "autoprefixer": "^10.4.16",
-    "browser-sync": "^3.0.2",
+    "browser-sync": "^3.0.3",
     "cssnano": "^7.0.6",
     "dart-sass": "^1.25.0",
     "gulp": "^5.0.0",
