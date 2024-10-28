@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.25.8",
-    "@babel/preset-env": "^7.25.8",
+    "@babel/preset-env": "^7.26.0",
     "autoprefixer": "^10.4.16",
     "browser-sync": "^3.0.3",
     "cssnano": "^7.0.6",
